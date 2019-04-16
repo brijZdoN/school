@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Teacher.ADDUSER">
+    <include
+        layout="@layout/toobar_layout"
+        android:id="@+id/toolbar"/>
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="100dp"
+        android:id="@+id/n"
+        android:textColorHint="#1626d4"
+        android:layout_height="wrap_content"
+        >
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="User Name"
+            android:id="@+id/name"
+            android:inputType="textEmailAddress"
+
+            />
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_below="@+id/n"
+        android:id="@+id/email"
+        android:textColorHint="#1626d4"
+        android:layout_height="wrap_content"
+
+        >
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email address"
+            android:id="@+id/mail"
+            android:inputType="textEmailAddress"
+
+            />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:id="@+id/pass"
+        android:textColorHint="#1626d4"
+        android:layout_below="@+id/email"
+        android:layout_height="wrap_content"
+        app:passwordToggleEnabled="true"
+
+        >
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+
+            android:id="@+id/password"
+            android:inputType="textPassword"
+
+            />
+    </android.support.design.widget.TextInputLayout>
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/pass"
+
+        android:orientation="horizontal"
+
+        android:id="@+id/radiogroup"
+
+        >
+        <RadioButton
+            android:layout_width="wrap_content"
+            android:id="@+id/male"
+            android:checked="true"
+            android:layout_height="wrap_content"
+            android:text="MALE"/>
+        <RadioButton
+            android:id="@+id/female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="FEMALE"/>
+    </RadioGroup>
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spin"
+        android:layout_below="@+id/radiogroup"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/spin"
+        android:text="Register User"
+        android:id="@+id/signup"/>
+</RelativeLayout>

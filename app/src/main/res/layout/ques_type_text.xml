@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <EditText
+        android:layout_below="@+id/qtype"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:hint="Question heading"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:id="@+id/heading"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/heading"
+        android:layout_marginTop="10dp"
+        android:hint="Option A"
+
+        android:id="@+id/headingoptiona"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/headingoptiona"
+        android:layout_marginTop="10dp"
+        android:hint="Option B"
+
+        android:id="@+id/headingoptionb"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/headingoptionb"
+        android:layout_marginTop="10dp"
+        android:hint="Option C"
+
+        android:id="@+id/headingoptionc"/>
+    <EditText
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/headingoptionc"
+        android:layout_marginTop="10dp"
+        android:hint="Option D"
+        android:id="@+id/headingoptiond"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Answer"
+
+        android:textSize="20sp"
+        android:layout_below="@+id/headingoptiond"/>
+
+    <Spinner
+        android:id="@+id/ansspin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/headingoptiond"
+
+        android:layout_centerHorizontal="true"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add question"
+        android:id="@+id/addone"
+
+        android:layout_below="@+id/ansspin"
+        android:layout_marginTop="10dp"/>
+</RelativeLayout>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:clickable="false">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sequence"
+        android:textSize="20dp"
+        android:textColor="#000000"
+        android:text="1-"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="25dp"
+        android:layout_toRightOf="@+id/sequence"
+        android:layout_marginLeft="5dp"
+        android:text="this is my first question  "
+        android:textSize="20dp"
+        android:id="@+id/qid"
+        android:textColor="#000000"/>
+    <ImageView
+        android:id="@+id/textViewOptions"
+        android:layout_width="20dp"
+        android:layout_height="40dp"
+        style="@style/Base.TextAppearance.AppCompat.Button"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/dot"
+        android:textColor="#000000"
+        android:elevation="10dp"
+        android:textAppearance="?android:textAppearanceLarge" />
+   <RadioGroup
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_below="@+id/qid"
+       android:checked="false"
+       android:layout_marginTop="10dp">
+       <RadioButton
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="option 1"
+
+           android:id="@+id/A"
+           />
+       <RadioButton
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="option 2"
+           android:id="@+id/B"
+           />
+       <RadioButton
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="option 3"
+
+           android:id="@+id/C"
+           />
+       <RadioButton
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:text="option 4"
+           android:id="@+id/D"
+           />
+   </RadioGroup>
+
+
+</RelativeLayout>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="145dp"
+        android:layout_height="145dp"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentTop="true"
+        android:id="@+id/image1"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/pic" />
+
+    <EditText
+        android:layout_below="@+id/image1"
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Question heading"
+        android:textColor="#000000"
+        android:textStyle="bold"
+        android:id="@+id/Qheading"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Qheading"
+        android:layout_marginTop="10dp"
+        android:hint="Option A"
+        android:id="@+id/ansA"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ansA"
+        android:layout_marginTop="10dp"
+        android:hint="Option B"
+
+        android:id="@+id/ansB"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ansB"
+        android:layout_marginTop="10dp"
+        android:hint="Option C"
+
+        android:id="@+id/ansC"/>
+    <EditText
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ansC"
+        android:layout_marginTop="10dp"
+        android:hint="Option D"
+        android:id="@+id/ansD"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Answer"
+        android:textSize="20sp"
+        android:layout_below="@+id/ansD"/>
+
+    <Spinner
+        android:id="@+id/ANSspin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ansD"
+
+        android:layout_centerHorizontal="true"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add question"
+        android:id="@+id/addans"
+        android:layout_below="@+id/ANSspin"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"/>
+</RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

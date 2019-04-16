@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".STUDENT.StudentActivity"
+android:id="@+id/sdrawer">
+
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="?attr/actionBarSize"
+        android:background="@color/white"
+        android:id="@+id/m">
+    </RelativeLayout>
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="0dp"
+        android:gravity="center"
+        android:id="@+id/sappbar">
+        <include
+            layout="@layout/toobar_layout"
+            android:id="@+id/toolbar"/>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/stablayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#808080"
+            app:tabIndicatorColor="#000"
+            app:tabMode="fixed"
+            app:tabTextColor="#ffff"></android.support.design.widget.TabLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        android:layout_below="@+id/sappbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/sviewpager"
+
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    </android.support.v4.view.ViewPager>
+
+</RelativeLayout>
+
+
+<android.support.design.widget.NavigationView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/snav_view"
+    app:menu="@menu/snav_menu"
+    android:layout_gravity="start"
+    app:headerLayout="@layout/header"
+    android:layout_marginTop="?attr/actionBarSize">
+
+</android.support.design.widget.NavigationView>
+
+</android.support.v4.widget.DrawerLayout>

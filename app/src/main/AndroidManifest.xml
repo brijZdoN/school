@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="beyou.school">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/lo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity" />
+        <activity android:name=".SIGNIN.SignIn" />
+        <activity android:name=".SIGNIN.Varification" />
+        <activity android:name=".Teacher.ADDUSER" />
+        <activity android:name=".Teacher.test" />
+        <activity android:name=".STUDENT.StudentActivity" />
+        <activity android:name=".SplashScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".STUDENT.StuTest" />
+    </application>
+
+</manifest>

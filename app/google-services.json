@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "182760616181",
+    "firebase_url": "https://school-72cf3.firebaseio.com",
+    "project_id": "school-72cf3",
+    "storage_bucket": "school-72cf3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:182760616181:android:376e7b5c90aef0ff",
+        "android_client_info": {
+          "package_name": "beyou.school"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "182760616181-qk0sal6q108nnudn3r515s56d6rdh06d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjFiGOvwejv4x1YTHAeFMtGi8wL8nNZLc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Teacher.addquestion"
+    android:background="#ffffff"
+    android:clickable="false">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Question type:"
+        android:textSize="20dp"
+        android:textColor="#000000"
+        android:id="@+id/qtype"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/qtype"
+
+        android:layout_marginLeft="20dp"
+        android:id="@+id/qtypetext"
+        android:textSize="20dp"/>
+    <Spinner
+        android:layout_toEndOf="@+id/qtypetext"
+        android:layout_width="wrap_content"
+        android:id="@+id/qtypespin"
+        android:layout_height="wrap_content"
+        ></Spinner>
+
+
+    <ViewStub
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/qtype"
+        android:id="@+id/stub2"
+        android:inflatedId="@+id/id2"
+        android:visibility="invisible"
+        android:layout="@layout/ques_type_image"/>
+    <ViewStub
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/qtype"
+        android:id="@+id/stub"
+        android:inflatedId="@+id/id1"
+        android:layout="@layout/ques_type_text">
+    </ViewStub>
+
+</RelativeLayout>

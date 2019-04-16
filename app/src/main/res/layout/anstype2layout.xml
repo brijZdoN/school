@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/at2seq"
+        android:textSize="20dp"
+        android:textColor="#000000"
+        android:text="1-"/>
+    <ImageView
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:layout_alignParentTop="true"
+        android:id="@+id/at2image"
+        android:scaleType="fitXY"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/lo" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/at2image"
+        android:layout_marginRight="25dp"
+        android:text="this is my first question  "
+        android:textSize="20dp"
+        android:id="@+id/at2qid"
+        android:textColor="#000000"/>
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/at2qid"
+        android:checked="false"
+        android:id="@+id/at2gid"
+        android:clickable="false"
+        android:layout_marginTop="10dp">
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="option 1"
+
+            android:id="@+id/at2A"
+            />
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="option 2"
+            android:id="@+id/at2B"
+            />
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="option 3"
+
+            android:id="@+id/at2C"
+            />
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="option 4"
+            android:id="@+id/at2D"
+            />
+    </RadioGroup>
+
+</RelativeLayout>
