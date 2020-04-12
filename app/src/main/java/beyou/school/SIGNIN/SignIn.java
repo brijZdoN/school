@@ -5,7 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+
 import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -36,6 +36,7 @@ public class SignIn extends AppCompatActivity  implements View.OnClickListener {
     Button signin,signup;
     FirebaseAuth firebaseAuth;
     TextView forgot;
+    private  String school="school";
     private ProgressDialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,12 +54,18 @@ public class SignIn extends AppCompatActivity  implements View.OnClickListener {
        // signup.setOnClickListener(this);
         forgot=findViewById(R.id.reset);
         forgot.setOnClickListener(this);
-        if (firebaseAuth.getCurrentUser() != null && firebaseAuth.getCurrentUser().isEmailVerified())
+        SharedPreferences sf=getSharedPreferences( school,Context.MODE_PRIVATE );
+        String m=sf.getString( "emailId","null" );
+        String p=sf.getString( "Password","mull" );
+        if(!(m=="null" &&p=="null"))
         {
-            Intent intent = new Intent(SignIn.this, MainActivity.class);
-            startActivity(intent);
-            finish();
+            String t=sf.getString( "type",null );
+            if(t!="null")
+            {
+                redirectByType( t );
+            }
         }
+
 
     }
 
@@ -98,7 +105,7 @@ public class SignIn extends AppCompatActivity  implements View.OnClickListener {
             firebaseAuth.signInWithEmailAndPassword(email,password)
                         .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                             @Override
-                            public void onComplete(@NonNull Task<AuthResult> task)
+                            public void onComplete( Task<AuthResult> task)
                             {
                                 if (task.isSuccessful())
                                 {
@@ -115,7 +122,7 @@ public class SignIn extends AppCompatActivity  implements View.OnClickListener {
                             }
                         }).addOnFailureListener(new OnFailureListener() {
                 @Override
-                public void onFailure(@NonNull Exception e)
+                public void onFailure(Exception e)
                 {
                     e.printStackTrace();
                     dialog.dismiss();
@@ -128,33 +135,35 @@ public class SignIn extends AppCompatActivity  implements View.OnClickListener {
 
     private void signintoMainPAge(String email, String password)
     {
-        String school="school";
+
         SharedPreferences preferences=getSharedPreferences( school, Context.MODE_PRIVATE );
-        SharedPreferences.Editor editor=preferences.edit();
+        final SharedPreferences.Editor editor=preferences.edit();
         editor.putString( "emailId",email );
         editor.putString( "Password",password );
-        editor.commit();
         String  userid=FirebaseAuth.getInstance().getCurrentUser().getUid();
         FirebaseDatabase.getInstance()
                 .getReference()
                 .child( "Users")
                 .child(userid ).addListenerForSingleValueEvent( new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+            public void onDataChange( DataSnapshot dataSnapshot)
             {
                 String s=dataSnapshot.child("usertype" ).getValue().toString();
+                redirectByType(s);
                 if(s.equals( "Teacher" ))
                 {   dialog.dismiss();
                     Intent intent=new Intent( SignIn.this,MainActivity.class);
-                    intent.putExtra( "type",s );
                     startActivity( intent );
+                    editor.putString( "type","Teacher" );
+                    editor.commit();
                     finish();
                 }
                 else if(s.equals( "Admin" ))
                 {
                     dialog.dismiss();
                     Intent intent=new Intent( SignIn.this,MainActivity.class);
-                    intent.putExtra( "type",s );
+                    editor.putString( "type","Admin" );
+                    editor.commit();
                     startActivity( intent );
                     finish();
                 }
@@ -162,6 +171,8 @@ public class SignIn extends AppCompatActivity  implements View.OnClickListener {
                 {
                     dialog.dismiss();
                     Intent intent=new Intent( SignIn.this, StudentActivity.class );
+                    editor.putString( "type","Student" );
+                    editor.commit();
                     startActivity(intent);
                     finish();
                 }
@@ -173,12 +184,38 @@ public class SignIn extends AppCompatActivity  implements View.OnClickListener {
             }
 
             @Override
-            public void onCancelled(@NonNull DatabaseError databaseError)
+            public void onCancelled( DatabaseError databaseError)
             {
                 dialog.dismiss();
 
             }
         } );
+    }
+
+    private void redirectByType(String s)
+    {
+        if(s=="Admin")
+        {
+            Intent intent=new Intent( SignIn.this,MainActivity.class);
+            intent.putExtra( "type","Admin" );
+            startActivity( intent );
+            finish();
+        }
+        else if(s== "Teacher" )
+        {
+            Intent intent=new Intent( SignIn.this,MainActivity.class);
+            intent.putExtra( "type","Teacher" );
+            startActivity( intent );
+            finish();
+        }
+        else if(s== "Student" )
+        {
+            Intent intent=new Intent( SignIn.this, StudentActivity.class );
+            intent.putExtra( "type","Student" );
+            startActivity( intent );
+            finish();
+        }
+
     }
 
     private boolean checkforvalid(String email, String password)

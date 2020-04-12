@@ -1,7 +1,6 @@
 package beyou.school;
 
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.GravityCompat;
@@ -57,7 +56,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
-
         adapter=new ViewPagerAdapter(getSupportFragmentManager());
         tabLayout=findViewById(R.id.tablayout);
         viewPager=findViewById(R.id.viewpager);
@@ -65,12 +63,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         adapter.AddFragmnet(new ActivityFrament(),"Activity");
         adapter.AddFragmnet( new Result(),"Result" );
         viewPager.setAdapter(adapter);
+        hideItem();
         tabLayout.setupWithViewPager(viewPager);
         FirebaseDatabase.getInstance().getReference().child( "Users" )
                 .child( FirebaseAuth.getInstance().getCurrentUser().getUid() )
                 .addListenerForSingleValueEvent( new ValueEventListener() {
                     @Override
-                    public void onDataChange(@NonNull DataSnapshot dataSnapshot)
+                    public void onDataChange(DataSnapshot dataSnapshot)
                     {
                         User user=dataSnapshot.getValue(User.class);
                         View header=navigationView.getHeaderView(0);
@@ -82,14 +81,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     }
 
                     @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                    public void onCancelled( DatabaseError databaseError) {
 
                     }
                 } );
        
     }
     private void hideItem()
-    {
+    {   intent=getIntent();
         if(intent.getStringExtra( "type" )!="Teacher")
         navigationView =  findViewById(R.id.nav_view);
         Menu nav_Menu = navigationView.getMenu();
@@ -125,7 +124,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return super.onOptionsItemSelected(item);
     }
     @Override
-    public boolean onNavigationItemSelected(@NonNull MenuItem item)
+    public boolean onNavigationItemSelected(MenuItem item)
     {
         switch (item.getItemId())
         {
