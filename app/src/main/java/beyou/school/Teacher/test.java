@@ -24,6 +24,12 @@ public class test extends AppCompatActivity {
         else
         {
             Bundle bundle =new Bundle();
+            bundle.putString("key",testId);
+            bundle.putString("testname",testName);
+            bundle.putString("saved",saved);
+            queslist qu=new queslist();
+            qu.setArguments(bundle);
+            getSupportFragmentManager().beginTransaction().add(R.id.testactivityid,qu).commit();
         }
 
     }
