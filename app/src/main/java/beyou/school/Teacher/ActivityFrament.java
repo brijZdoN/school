@@ -65,13 +65,13 @@ public class ActivityFrament extends Fragment {
             @Override
             public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s)
             {   if(dataSnapshot!=null)
-            {
-                 key=dataSnapshot.getKey();
-                Activity_List_Model model=dataSnapshot.getValue(Activity_List_Model.class);
-                model.setKey( key );
-                arrayList.add( model );
-                adapter.notifyDataSetChanged();
-            }
+                {
+                      key=dataSnapshot.getKey();
+                      Activity_List_Model model=dataSnapshot.getValue(Activity_List_Model.class);
+                      model.setKey( key );
+                      arrayList.add( model );
+                      adapter.notifyDataSetChanged();
+                  }
 
             }
 
@@ -95,21 +95,20 @@ public class ActivityFrament extends Fragment {
                        Activity_List_Model models =arrayList.get( position );
                         queslist ques=new queslist();
                         Bundle bundle=new Bundle();
-                        bundle.putString( "key",models.getKey() );
-                        bundle.putString( "name",models.getTestname() );
+
                         bundle.putString( "type","2" );
                         ques.setArguments( bundle );
-                        getActivity().getSupportFragmentManager()
-                                     .beginTransaction()
-                                     .add( R.id.drawer,ques )
-                                     .addToBackStack( null )
-                                     .commit();
+                        Intent intent= new Intent(getActivity(),test.class);
+                        intent.putExtra("key",models.getKey());
+                        intent.putExtra("testname", models.getTestname());
+                        intent.putExtra("saved","1");
+                        startActivity(intent);
                     }
 
                     @Override public void onLongItemClick(View view, int position)
                     {
 
-                        // do whatever
+                        // do when needed
                     }
                 })
         );
